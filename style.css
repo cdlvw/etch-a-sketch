@@ -1,0 +1,40 @@
+html {
+	font-family: Arial, sans-serif;
+	font-size: 2.5vw;
+}
+
+body{
+	width:100vw;
+	height:100vh;
+}
+
+.par {
+	display:inline-block;
+	width:30%;
+	height:90%;
+	float:left;
+	margin-left:20px;
+	margin-top:20px;
+}
+
+h1{
+	font-size: 4vw;
+}
+
+.container {
+	display:inline-block;
+	float:left;
+	width: 60%;
+	height:90%;
+	margin-top:20px;
+	margin-right:20px;
+	border-style:solid;
+}
+
+.box {
+	float:left;
+	position:relative;
+	display:inline-block;
+	margin:0;
+}
+
