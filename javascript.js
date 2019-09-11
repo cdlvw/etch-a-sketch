@@ -7,6 +7,7 @@ buildGrid();
 document.getElementById("horizontal").addEventListener("input", buildGrid);
 document.getElementById("vertical").addEventListener("input", buildGrid);
 resetButton.addEventListener("click", buildGrid);
+
 // functions 
 
 function buildGrid(){
@@ -34,5 +35,15 @@ function buildGrid(){
 }
 
 function color(e){
-	e.path[0].style.backgroundColor = 'black'
+	if(trigger === true) {
+		e.path[0].style.backgroundColor = 'black'
+	}
 }
+
+document.addEventListener("mousedown", function(){
+	trigger= true;
+});
+
+document.addEventListener("mouseup", function(){
+	trigger = false;
+});
