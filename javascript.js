@@ -1,11 +1,12 @@
 // script
 
 const container = document.querySelector('.container');
+const resetButton = document.querySelector('.reset');
 
 buildGrid();
 document.getElementById("horizontal").addEventListener("input", buildGrid);
 document.getElementById("vertical").addEventListener("input", buildGrid);
-
+resetButton.addEventListener("click", buildGrid);
 // functions 
 
 function buildGrid(){
