@@ -1,28 +1,41 @@
-// script
+// declarations
 
 const container = document.querySelector('.container');
 const emptyButton = document.querySelector('.empty');
 const colorButton = document.querySelector('.color');
 const blackButton = document.querySelector('.black');
+const horizontal = document.querySelector('#horizontal');
+const vertical = document.querySelector('#vertical');
+
+var colorSwitch = false;
+
+// script
 
 buildGrid();
-document.querySelector("#horizontal").addEventListener("input", buildGrid);
-document.querySelector("#vertical").addEventListener("input", buildGrid);
 
+blackButton.addEventListener('click', function(){
+	colorSwitch = false;
+});
+
+colorButton.addEventListener('click', function(){
+	colorSwitch = true;
+});
+
+horizontal.addEventListener("input", buildGrid);
+vertical.addEventListener("input", buildGrid);
 emptyButton.addEventListener("click", buildGrid);
 
 // functions 
 
 function buildGrid(){
 	var horizontal = document.querySelector('#horizontal').value;
-	vertical = document.querySelector('#vertical').value;
+	var vertical = document.querySelector('#vertical').value;
 	while (container.hasChildNodes()) {
 			container.removeChild(container.lastChild);
 	};
 	for (i= 1; i <= horizontal*vertical; i++) {
 		const box = document.createElement('div');
 		box.className = "box" ;
-		box.classList.add(i.toString());
 		container.appendChild(box);
 		var numWidth = 100/horizontal;
 		var numHeight = 100/vertical;
@@ -33,33 +46,16 @@ function buildGrid(){
 	};
 
 	var boxes = Array.from(document.querySelectorAll('.box'));
-	boxes.forEach(box => box.addEventListener("mouseover", color));
+	boxes.forEach(box => box.addEventListener("mouseover", fill));
 };
 
-function color(e){
-	document.addEventListener("mousedown", function(){
-		trigger= true;
-	});
+function fill(e){
 
-	document.addEventListener("mouseup", function(){
-		trigger = false;
-	});
-	
-	colorButton.addEventListener("click", function(){
-		colorSwitch = 1;
-	});
-	
-	blackButton.addEventListener('click', function(){
-		colorSwitch = 0;
-	});
-	
-	if(trigger === true) {
-		if(colorSwitch === 1){
-			e.path[0].style.backgroundColor = getRandomRGB();
-		} else{
-			e.path[0].style.backgroundColor = 'black';
-		};
-	};
+	if(colorSwitch === false) {
+		this.style.backgroundColor = 'black';
+	} else {
+		this.style.backgroundColor = getRandomRGB();
+	}
 };
 
 function getRandomRGB(){

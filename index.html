@@ -7,22 +7,25 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 
-<body id="home">
-	<div class='par'>
-		<h1>Etch a Sketch!</h1>
-			<p>Step1: Choose your colors.</p>
-			<button class="color">Random</button>
-			<button class="black">Black and white</button>
-			<p>Step 2: Choose the resolution of your sketching grid.</p>
-			<p>Horizontal:</p> 
-			<input type="number" id="horizontal" min="1" max="100" value="20">
-			<p>Vertical:</p> 
-			<input type="number" id="vertical" min="1" max="100" value="20">
-			<br>
-			<p>Step 3: Sketch!</p>
-			<button class="empty">Empty grid</button>
+<body>
+	<h1>Etch a Sketch!</h1>
+	<div class='content'>
+		<div class='left'>
+				<h2>Step 1: Choose your colors.</p>
+				<button class="color">Random</button>
+				<button class="black">Black and white</button>
+				<h2>Step 2: Choose the resolution of your sketching grid.</p>
+				<p>Horizontal:</p> 
+				<input type="number" id="horizontal" min="1" max="100" value="20">
+				<p>Vertical:</p> 
+				<input type="number" id="vertical" min="1" max="100" value="20">
+				<br>
+				<h2>Step 3: Sketch!</p>
+				<button class="empty">Empty grid</button>
+		</div>
+		<div class='container'></div>
 	</div>
-	<div class='container'></div>
+	
 </body>
 
 <script src="javascript.js"></script>
